@@ -25,7 +25,10 @@ kotlin {
     sourceSets {
         val commonMain by getting{
             dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation(platform("com.google.firebase:firebase-bom:31.2.3"))
+                implementation("com.google.firebase:firebase-auth-ktx")
             }
         }
         val commonTest by getting {
@@ -33,7 +36,11 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting{
+            dependencies{
+
+            }
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -63,4 +70,7 @@ android {
         minSdk = 24
         targetSdk = 33
     }
+}
+dependencies {
+    implementation("com.google.firebase:firebase-database-ktx:20.1.0")
 }

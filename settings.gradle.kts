@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "Smart_Parking"
 include(":androidApp")
 include(":shared")
+include(":ui")
+include(":feature:login")
+include(":core:data")

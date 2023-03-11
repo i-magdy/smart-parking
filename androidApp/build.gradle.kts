@@ -1,6 +1,11 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("com.google.gms.google-services")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -39,13 +44,26 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(project(":ui"))
+    implementation(project(":feature:login"))
     implementation("androidx.compose.ui:ui:1.3.3")
     implementation("androidx.compose.ui:ui-tooling:1.3.3")
     implementation("androidx.compose.ui:ui-tooling-preview:1.3.3")
     implementation("androidx.compose.foundation:foundation:1.3.1")
-    //implementation("androidx.compose.material:material:1.3.1")
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0")
     implementation("androidx.compose.material3:material3:1.0.1")
     implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
     implementation("androidx.activity:activity-compose:1.6.1")
+    implementation(platform("com.google.firebase:firebase-bom:31.2.3"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+    implementation("com.google.dagger:hilt-android:2.44.2")
+    kapt("com.google.dagger:hilt-compiler:2.44.2")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
