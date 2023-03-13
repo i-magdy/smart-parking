@@ -2,8 +2,9 @@ package com.devwarex.smartparking.android.feature.login.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.devwarex.smartparking.android.feature.login.ui.Splash
+import com.devwarex.smartparking.android.feature.login.ui.splash.Splash
 import com.devwarex.smartparking.android.feature.login.ui.signin.SignInScreen
+import com.google.firebase.auth.PhoneAuthOptions
 
 const val loginSplashScreen = "splash_screen"
 const val loginScreen = "login_screen"
@@ -21,12 +22,14 @@ fun NavGraphBuilder.splashScreen(
 
 
 fun NavGraphBuilder.signInScreen(
+    phoneServiceBuilder: PhoneAuthOptions.Builder,
     navigateToSignUp: () -> Unit
 ){
     composable(
         route = loginScreen
     ){
         SignInScreen(
+            phoneServiceBuilder = phoneServiceBuilder,
             onNavigateToSignUp = navigateToSignUp
         )
     }

@@ -6,15 +6,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.devwarex.smartparking.android.feature.login.navigation.*
-
-
+import com.google.firebase.auth.PhoneAuthOptions
 
 
 @Composable
 fun LoginNavHost(
     modifier: Modifier = Modifier,
     navHostController: NavHostController = rememberNavController(),
-    startDestination: String = loginSplashScreen
+    startDestination: String = loginSplashScreen,
+    phoneServiceBuilder: PhoneAuthOptions.Builder
 ){
     NavHost(
         modifier = modifier,
@@ -27,7 +27,9 @@ fun LoginNavHost(
             }
         }
 
-        signInScreen {
+        signInScreen(
+            phoneServiceBuilder = phoneServiceBuilder
+        ){
             navHostController.navigate(signUpScreen){
                 navHostController.popBackStack()
             }

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Smart Parking</string>
+    <string name="sign_in_message">Sign In</string>
+    <string name="verify_message">Smart Parking will send a SMS message to verify your phone number.</string>
+    <string name="phone_title">Phone number</string>
+    <string name="code_title">Code</string>
+    <string name="verification_code">Verification code</string>
+    <string name="get_verify_title">Get verification code</string>
+    <string name="verify_title">Verify</string>
+    <string name="type_code_title">Type verification code:</string>
 </resources>

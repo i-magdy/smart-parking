@@ -1,4 +1,4 @@
-package com.devwarex.smartparking.android.feature.login.ui
+package com.devwarex.smartparking.android.feature.login.ui.splash
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text

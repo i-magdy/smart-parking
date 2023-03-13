@@ -24,7 +24,9 @@ class LoginActivity : BaseComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginNavHost()
+                    LoginNavHost(
+                        phoneServiceBuilder = builder
+                    )
                 }
             }
         }

@@ -71,6 +71,3 @@ android {
         targetSdk = 33
     }
 }
-dependencies {
-    implementation("com.google.firebase:firebase-database-ktx:20.1.0")
-}
