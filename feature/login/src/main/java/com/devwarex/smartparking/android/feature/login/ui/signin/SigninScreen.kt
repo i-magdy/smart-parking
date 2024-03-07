@@ -76,6 +76,9 @@ fun SignInScreen(
         Spacer(modifier = modifier.height(16.dp))
         
         val uiState = viewModel.uiState.collectAsState().value
+        if (uiState.isSuccess){
+            onNavigateToSignUp.invoke()
+        }
         if (uiState.phone.isNotEmpty() && !uiState.isCodeSent){
             Button(
                 modifier = Modifier.align(Alignment.CenterHorizontally),

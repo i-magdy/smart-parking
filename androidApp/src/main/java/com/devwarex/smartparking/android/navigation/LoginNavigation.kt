@@ -21,11 +21,18 @@ fun LoginNavHost(
         navController = navHostController,
         startDestination = startDestination
     ){
-        splashScreen {
-            navHostController.navigate(loginScreen){
-                navHostController.popBackStack()
+        splashScreen(
+            navigateToSignIn = {
+                navHostController.navigate(loginScreen){
+                    navHostController.popBackStack()
+                }
+            },
+            navigateToSignUp = {
+                navHostController.navigate(signUpScreen) {
+                    navHostController.popBackStack()
+                }
             }
-        }
+        )
 
         signInScreen(
             phoneServiceBuilder = phoneServiceBuilder
@@ -34,6 +41,7 @@ fun LoginNavHost(
                 navHostController.popBackStack()
             }
         }
+        signupScreen()
     }
 }
 

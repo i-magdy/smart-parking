@@ -1,5 +1,6 @@
 package com.devwarex.smartparking.android.feature.login.ui.splash
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,13 +12,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.runtime.collectAsState
 import com.devwarex.smartparking.android.ui.R
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.devwarex.smartparking.android.feature.login.ui.splash.SplashViewModel
 
 
 @Composable
 fun Splash(
     viewModel: SplashViewModel = hiltViewModel(),
-    onNavigateToLogin: () -> Unit
+    onNavigateToLogin: () -> Unit,
+    onNavigateToSignUp: () -> Unit
 ){
     Column(
         verticalArrangement = Arrangement.Center,
@@ -36,7 +37,14 @@ fun Splash(
     }
 
     val ui = viewModel.uiState.collectAsState().value
-    if (!ui.isLogged){ onNavigateToLogin.invoke() }
+    Log.e("smart_ui",ui.toString())
+    if (!ui.isLoading) {
+        if (!ui.isLogged) {
+            onNavigateToLogin.invoke()
+        } else if (!ui.isSignedUp) {
+            onNavigateToSignUp.invoke()
+        }
+    }
 
 }
 

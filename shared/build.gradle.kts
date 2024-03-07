@@ -29,6 +29,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                 implementation(platform("com.google.firebase:firebase-bom:31.2.3"))
                 implementation("com.google.firebase:firebase-auth-ktx")
+                implementation("com.google.firebase:firebase-firestore-ktx")
             }
         }
         val commonTest by getting {
